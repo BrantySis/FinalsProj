@@ -9,6 +9,11 @@ class Room extends Model
 {
     /** @use HasFactory<\Database\Factories\RoomFactory> */
 
+    protected $fillable = [
+        'apartment_id', 'room_number'
+    ];
+
+
     public function apartment()
     {
         return $this->belongsTo(Apartment::class);
@@ -16,7 +21,7 @@ class Room extends Model
 
     public function tenant()
     {
-        return $this->hasOne(Tenant::class);
+        return $this->hasMany(Tenant::class);
     }
     
     use HasFactory;
